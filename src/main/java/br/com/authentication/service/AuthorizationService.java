@@ -12,7 +12,7 @@ import br.com.authentication.repository.UserRepository;
 public class AuthorizationService implements UserDetailsService {
 	
 	@Autowired
-	UserRepository repository;
+	private UserRepository repository;
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

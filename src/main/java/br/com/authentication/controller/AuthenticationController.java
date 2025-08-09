@@ -12,10 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.authentication.DTO.LoginDTO;
+import br.com.authentication.DTO.LoginResponseDTO;
 import br.com.authentication.DTO.RegisterDTO;
 import br.com.authentication.model.UsersModel;
 import br.com.authentication.repository.UserRepository;
-import br.com.authentication.service.AuthorizationService;
+import br.com.authentication.security.TokenService;
 
 @RestController
 @RequestMapping("auth")
@@ -26,6 +27,9 @@ public class AuthenticationController {
 	
 	@Autowired
 	private UserRepository repository;
+	
+	@Autowired
+	private TokenService tokenService;
 	
 	@PostMapping("/register")
 	public ResponseEntity register(@RequestBody @Validated RegisterDTO dto) {
@@ -45,6 +49,8 @@ public class AuthenticationController {
 		var usernamePassword = new UsernamePasswordAuthenticationToken(dto.login(), dto.password());
 		var authe = this.authenticationManager.authenticate(usernamePassword);
 		
-		return ResponseEntity.ok().build();
+		var token = tokenService.generateToken((UsersModel) authe.getPrincipal());
+		
+		return ResponseEntity.ok(new LoginResponseDTO(token));
 	}
 }
