@@ -16,44 +16,28 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `user`
+-- Table structure for table `product`
 --
 
-DROP TABLE IF EXISTS `user`;
+DROP TABLE IF EXISTS `product`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `user` (
+CREATE TABLE `product` (
   `id` varchar(255) NOT NULL,
-  `cpf` varchar(255) DEFAULT NULL,
-  `dt_birth` date DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `enterprise` varchar(255) DEFAULT NULL,
-  `login` varchar(255) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
-  `password` varchar(255) DEFAULT NULL,
-  `role` tinyint DEFAULT NULL,
-  `sex` enum('Famele','Male') DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `UK2qv8vmk5wxu215bevli5derq` (`cpf`),
-  UNIQUE KEY `UKgqegt8rr3q2rt6g9rq5lmd69j` (`dt_birth`),
-  UNIQUE KEY `UKob8kqyqqgmefl0aco34akdtpe` (`email`),
-  UNIQUE KEY `UKdt28dcc4246r7v782pxpb1ee6` (`enterprise`),
-  UNIQUE KEY `UKew1hvam8uwaknuaellwhqchhb` (`login`),
-  UNIQUE KEY `UKgj2fy3dcix7ph7k8684gka40c` (`name`),
-  UNIQUE KEY `UKkiqfjabx9puw3p1eg7kily8kg` (`password`),
-  UNIQUE KEY `UKdl7g53f7lpmorjc24kx74apx8` (`role`),
-  UNIQUE KEY `UK8663gowwopp6jhblj3xdx0m80` (`sex`)
+  `price` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `user`
+-- Dumping data for table `product`
 --
 
-LOCK TABLES `user` WRITE;
-/*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES ('d638673f-64a9-4e02-956d-4f168f0510d7','00000000001','2025-01-13','teste1@teste1.com','teste1','teste2','teste1','$2a$10$EhcLXQf.RZh3ADPiVFuLzOlonYmMYcoIn6BS3JifvUKH/8g.7xT/2',1,'Famele'),('eda0eda2-d76b-48ca-a7d3-2207f662fdc3','00000000000','2025-01-12','teste@associado.com','teste','teste','teste','$2a$10$BWXlD2ApeFrUZeOu..fzteovXrp1s0fXNdSlU9HoJW63apeNSVyoe',0,'Male');
-/*!40000 ALTER TABLE `user` ENABLE KEYS */;
+LOCK TABLES `product` WRITE;
+/*!40000 ALTER TABLE `product` DISABLE KEYS */;
+INSERT INTO `product` VALUES ('7b2d86a2-5b31-4ef0-be89-b7ece11f20d3','Calsa','300'),('a1e19d98-0b17-4e6e-ba00-886b25aa6657','Camisa','200');
+/*!40000 ALTER TABLE `product` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

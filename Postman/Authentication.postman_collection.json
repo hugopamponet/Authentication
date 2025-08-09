@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"Teste\",\r\n    \"email\": \"teste@teste.com\",\r\n    \"telephone\": \"7199999999\",\r\n    \"sex\": \"Male\",\r\n    \"user\": \"teste\",\r\n    \"password\": \"123456\"\r\n}",
+					"raw": "{\r\n    \"name\": \"teste1\",\r\n    \"dtBirth\": \"2025-01-13\",\r\n    \"sex\": \"Famele\",\r\n    \"email\": \"teste1@teste1.com\",\r\n    \"cpf\": \"00000000001\",\r\n    \"enterprise\": \"teste1\",\r\n    \"role\": \"USER\",\r\n    \"login\": \"teste2\",\r\n    \"password\": \"1234567\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -21,14 +21,14 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/user/register",
+					"raw": "http://localhost:8080/auth/register",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"user",
+						"auth",
 						"register"
 					]
 				}
@@ -42,7 +42,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"user\": \"teste\",\r\n    \"password\": \"123456\"\r\n}",
+					"raw": "{\r\n    \"login\": \"teste\",\r\n    \"password\": \"1234567\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -50,15 +50,83 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/user/login",
+					"raw": "http://localhost:8080/auth/login",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"user",
+						"auth",
 						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register Product",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoZW4iLCJzdWIiOiJ0ZXN0ZSIsImV4cCI6MTc1NDc1NDYzMH0.h75y4UzCtHiJBrUO-I1NaG9U_qQ6HUx3oxTWyDAuNmE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Calsa\",\r\n    \"price\":300\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/product/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"product",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consulta product",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoZW4iLCJzdWIiOiJ0ZXN0ZSIsImV4cCI6MTc1NDc1NDYzMH0.h75y4UzCtHiJBrUO-I1NaG9U_qQ6HUx3oxTWyDAuNmE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/product",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"product"
 					]
 				}
 			},

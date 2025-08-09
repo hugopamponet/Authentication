@@ -21,7 +21,7 @@ public class ProductController {
 	@Autowired
 	private ProductService productService;
 	
-	@PostMapping("/registrer")
+	@PostMapping("/register")
 	public ResponseEntity<ProductModel> createProduct(@RequestBody ProductDTO dto) {
 		ProductModel savedProduct = productService.createProduct(dto);
 		return ResponseEntity.ok(savedProduct);
